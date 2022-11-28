@@ -19,9 +19,7 @@ while i < 20
   i += 1
 end
 
-
 # SEED BUNKERS
-
 
 i = 0
 
@@ -45,6 +43,5 @@ while i < 10
   bunker.save!
   i += 1
 end
-
 
 # SEED BOOKINGS / TO DO

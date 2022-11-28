@@ -7,7 +7,6 @@ class BunkersController < ApplicationController
 
   def show
     @bunker = Bunker.find(params[:id])
-
   end
 
   def create
