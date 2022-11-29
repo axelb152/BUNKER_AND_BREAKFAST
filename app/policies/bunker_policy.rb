@@ -1,10 +1,10 @@
 class BunkerPolicy < ApplicationPolicy
   class Scope < Scope
-  def resolve
-    scope.all # If users can see all restaurants
-    # scope.where(user: user) # If users can only see their restaurants
-    # scope.where("name LIKE 't%'") # If users can only see restaurants starting with `t`
-    # ...
+    def resolve
+      scope.all # If users can see all restaurants
+      # scope.where(user: user) # If users can only see their restaurants
+      # scope.where("name LIKE 't%'") # If users can only see restaurants starting with `t`
+      # ...
     end
   end
 
@@ -22,5 +22,9 @@ class BunkerPolicy < ApplicationPolicy
 
     def destroy?
       record.user == user
+    end
+
+    def manage?
+      true
     end
 end

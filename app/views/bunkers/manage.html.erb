@@ -1,0 +1,49 @@
+<div class="container">
+
+
+  <%# MOBILE TITLE BAR %>
+  <div class="">
+    <div><h3> My bunkers: <%= current_user.email %> </h3></div>
+    <div><p>You have <%= @mybunkers.count %> listed on Bunker & Breakfast</p></div>
+  </div>
+
+  <div>
+    <% @mybunkers.each do |bunker| %>
+      <div class="card-product">
+        <img src="https://images.unsplash.com/photo-1482670205041-1281b9faf4b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+        <div class="card-product-infos">
+          <h2> <%= bunker.name %></h2>
+          <p>Product description with <strong>relevant info</strong> only.</p>
+        </div>
+      </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+          <th scope="col">Who</th>
+          <th scope="col">Status</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% bunker.bookings.each do |booking| %>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+
+
+    <% end %>
+  </div>
+
+</div>

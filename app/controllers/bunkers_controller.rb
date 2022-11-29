@@ -11,6 +11,8 @@ class BunkersController < ApplicationController
   def show
     @bunker = Bunker.find(params[:id])
     authorize @bunker
+
+    @booking = Booking.new
   end
 
   def create
@@ -29,6 +31,13 @@ class BunkersController < ApplicationController
 
   def destroy
     authorize @bunker
+  end
+
+  def manage
+    @mybunkers = policy_scope(Bunker)
+    authorize @mybunkers
+    @mybunkers = Bunker.where(user_id: current_user.id)
+
   end
 
   private
