@@ -2,6 +2,7 @@
   /* Required properties */
   position: relative;
   background: white;
+  border: 4px solid $bunkerpink;
   border-radius: 20px;
   /* Use  your own styles here */
   width: 400px;
@@ -19,8 +20,8 @@
   left: 0;
   background: linear-gradient(-45deg, $bunkergreen 0%, $bunkerpink 100% );
   transform: translate3d(0px, 20px, 0) scale(0.95);
-  filter: blur(30px);
-  opacity: var(0.8);
+  filter: blur(100px);
+  opacity: var(1);
   transition: opacity 0.3s;
   border-radius: inherit;
 }
