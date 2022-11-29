@@ -1,6 +1,6 @@
 class BunkersController < ApplicationController
   def index
-    @bunkers = policy_scope(Bunker)
+    # @bunkers = policy_scope(Bunker)
     @bunkers = Bunker.all
   end
 
