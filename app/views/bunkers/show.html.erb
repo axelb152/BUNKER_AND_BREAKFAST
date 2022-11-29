@@ -60,4 +60,10 @@
 
   </div>
 
+  <% if policy(@bunker).edit? %>
+  <%= link_to "Edit this bunker", edit_bunker_path(@bunker) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this bunker", @bunker, method: :delete if policy(@bunker).destroy? %>
+
 </div>
