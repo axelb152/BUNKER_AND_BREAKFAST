@@ -33,6 +33,13 @@ class BunkersController < ApplicationController
     authorize @bunker
   end
 
+  def manage
+    @mybunkers = policy_scope(Bunker)
+    authorize @mybunkers
+    @mybunkers = Bunker.where(user_id: current_user.id)
+
+  end
+
   private
 
   def bunker_params

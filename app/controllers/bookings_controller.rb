@@ -16,6 +16,8 @@ class BookingsController < ApplicationController
     @booking.status = "Pending"
     @booking.total_price = @bunker.price * (@booking.end_date - @booking.start_date)
     @booking.save!
+    authorize @booking
+    # REDIRECT TO BOOKING PAGE ?
   end
 
   def edit
