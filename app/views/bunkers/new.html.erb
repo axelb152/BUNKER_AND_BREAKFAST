@@ -10,8 +10,7 @@
 <%= f.input :bed, label: 'Nbr of bed' %>
 <%= f.input :bathroom, label: 'Nbr of bathroom' %>
 <%= f.input :max_capacity, label: 'Max capacity' %>
-<%= f.input :photo, as: :file %>
+<%= f.input :cover_photo, as: :file, label: 'Cover Photo' %>
+<%= f.input :photos, as: :file, label: 'Photos', input_html: { multiple: true } %>
 <%= f.button :submit  %>
 <% end %>
-<%= cl_image_tag("cld-sample-5.jpg",
-      width: 400, height: 300, crop: :fill) %>

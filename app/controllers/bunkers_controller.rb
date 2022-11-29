@@ -18,9 +18,11 @@ class BunkersController < ApplicationController
   def create
     @bunker = Bunker.new(bunker_params)
     @bunker.user = current_user
-    @bunker.save
-    redirect_to bunker_path(@bunker)
-
+    if @bunker.save
+      redirect_to bunker_path(@bunker)
+    else
+      render :new
+    end
     authorize @bunker
   end
 
@@ -33,7 +35,7 @@ class BunkersController < ApplicationController
     if @bunker.save
       redirect_to bunker_path(@bunker)
     else
-      render :new
+      render :edit
     end
     authorize @bunker
   end
