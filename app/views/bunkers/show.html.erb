@@ -6,7 +6,7 @@
   </div>
 
 <%# MOBILE TITLE BAR %>
-  <div class="mt-2">
+  <div class="">
     <div><h3><%= @bunker.name %></h3></div>
     <div>⭐️ 5.0 | 5 reviews | Super Bunker | South Carolina</div>
   </div>
@@ -36,7 +36,27 @@
 
 
 <%# DESCRIPTION BLOCK %>
-  <div class="">
+  <div class="flex3-container mt-5">
+    <div class="flex3-items ">
+      <div><h4>Entire bunker hosted by <strong>Edouard</strong></h4></div>
+      <div  class="border-bottom mb-4"><p><%= @bunker.max_capacity %> guests | <%= @bunker.max_capacity/2 %> bedrooms | <%= @bunker.max_capacity/2 %> beds | <%= (@bunker.max_capacity/2)-1 %> baths</p></div>
+      <%# 3 BEST FEATURES %>
+
+      <%# BUNKER COVER %>
+      <div><h1><strong>BUNKER<span style="color: #FF7C0A">COVER</span></strong></h1></div>
+      <div  class="border-bottom mb-4"><p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p></div>
+
+      <%# ABOUT THIS SPACE %>
+      <div><h4>About this space</h4></div>
+      <div><p></p></div>
+
+    </div>
+
+    <div class="flex3-items ">
+      <div id="booking-component" class="shadow-lg">
+      <%# INSERT BOOKING COMPONENT HERE %>
+      </div>
+    </div>
 
   </div>
 

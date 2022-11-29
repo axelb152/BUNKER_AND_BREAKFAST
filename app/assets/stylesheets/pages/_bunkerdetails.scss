@@ -98,3 +98,47 @@
 #photo5 {
   border-bottom-right-radius: 20px;
 }
+
+
+
+// DESCRIPTION BLOCK
+
+.flex3-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: normal;
+  align-content: normal;
+}
+
+.flex3-items:nth-child(1) {
+  width: 60%;
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex3-items:nth-child(2) {
+  width: 40%;
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  // background-color: $bunkerorange;
+}
+
+
+
+
+#booking-component {
+  height: 500px;
+  margin-left: 20%;
+  background-color: $bunkergreen;
+  border-radius: 20px;
+}
