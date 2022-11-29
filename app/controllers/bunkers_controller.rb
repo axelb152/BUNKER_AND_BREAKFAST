@@ -56,6 +56,6 @@ class BunkersController < ApplicationController
   end
 
   def bunker_params
-    params.require(:bunker).permit(:name, :description, :price, :location, :max_capacity, :bed, :bedroom, :bathroom, :category )
+    params.require(:bunker).permit(:name, :description, :price, :location, :max_capacity, :bed, :bedroom, :bathroom, :category, :cover_photo, photos: [])
   end
 end
