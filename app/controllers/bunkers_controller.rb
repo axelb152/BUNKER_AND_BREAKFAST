@@ -1,4 +1,5 @@
 class BunkersController < ApplicationController
+  before_action :set_bunker, only: %i[show edit update destroy]
   def index
     @bunkers = policy_scope(Bunker)
   end
@@ -10,13 +11,15 @@ class BunkersController < ApplicationController
   end
 
   def show
-    @bunker = Bunker.find(params[:id])
     authorize @bunker
   end
 
   def create
     @bunker = Bunker.new(bunker_params)
     @bunker.user = current_user
+    @bunker.save
+    redirect_to bunker_path(@bunker)
+
     authorize @bunker
   end
 
@@ -25,6 +28,12 @@ class BunkersController < ApplicationController
   end
 
   def update
+    @bunker.update(bunker_params)
+    if @bunker.save
+      redirect_to bunker_path(@bunker)
+    else
+      render :new
+    end
     authorize @bunker
   end
 
@@ -34,7 +43,11 @@ class BunkersController < ApplicationController
 
   private
 
+  def set_bunker
+    @bunker = Bunker.find(params[:id])
+  end
+
   def bunker_params
-    params.require(:bunker).permit(:name, :description, :price, :location, :max_capacity)
+    params.require(:bunker).permit(:name, :description, :price, :location, :max_capacity, :bed, :bedroom, :bathroom, :category )
   end
 end
