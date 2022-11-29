@@ -7,27 +7,27 @@
   <%# FILTERS %>
   <div class="cards">
     <div class="card-category">
-      <a href=""><i class="fa-solid fa-biohazard"></i></a>
+      <a href=""><i class="fa-solid fa-biohazard"></i><span>Zombie-Free</span></a>
     </div>
 
     <div class="card-category">
-      <a href=""><i class="fa-solid fa-music"></i></a>
+      <a href=""><i class="fa-solid fa-music"></i><span>Rave</span></a>
     </div>
 
     <div class="card-category">
-      <a href=""><i class="fa-solid fa-laptop"></i></a>
+      <a href=""><i class="fa-solid fa-laptop"></i><span>Coding Heaven</span></a>
     </div>
 
     <div class="card-category">
-      <a href=""><i class="fa-solid fa-smoking"></i></a>
+      <a href=""><i class="fa-solid fa-smoking"></i><span>Cigar&Chill</span></a>
     </div>
 
     <div class="card-category">
-      <a href=""><i class="fa-solid fa-landmark"></i></a>
+      <a href=""><i class="fa-solid fa-landmark"></i><span>History</span></a>
     </div>
 
     <div class="card-category">
-      <a href=""><p class="filter-button">Filter</p></a>
+      <a href=""><i class="fa-regular fa-filter-list"></i><p class="filter-button">Filters</p></a>
     </div>
 
   </div>
@@ -38,10 +38,10 @@
       <div class="row pt-5 mx-1" style="width: 18rem;">
         <div class="col-12">
             <img class="bunker-image card-img-top rounded" src="https://images.unsplash.com/photo-1482670205041-1281b9faf4b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Card image cap">
-          <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-              <div class="card-body d-flex flex-column pl-0">
-                <h5 class="card-title border-bottom mb-4 "> <%= bunker.name %></h5>
-                <p class="card-text"><%= bunker.description %></p>
+          <div class="col-lg-4 mb-3 px-0 align-items-stretch">
+              <div class="card-body pl-0">
+                <h5 class="card-title border-bottom"> <%= bunker.name %></h5>
+                <%# <p class="card-text"><%= bunker.description %></p> %>
                 <p class="card-text">€<%= bunker.price %> night</p>
                 <a href="#" class="btn btn-outline-dark mt-auto align-self-start">View</a>
               </div>
