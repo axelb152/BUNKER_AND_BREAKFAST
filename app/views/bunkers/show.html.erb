@@ -1,2 +1,63 @@
-<h1>Bunkers#show</h1>
-<p>Find me in app/views/bunkers/show.html.erb</p>
+<div class="container">
+
+<%# MOBILE IMAGE SLIDER %>
+  <div class="">
+
+  </div>
+
+<%# MOBILE TITLE BAR %>
+  <div class="">
+    <div><h3><%= @bunker.name %></h3></div>
+    <div>⭐️ 5.0 | 5 reviews | Super Bunker | South Carolina</div>
+  </div>
+
+<%# MULTI IMAGE BLOCK %>
+
+  <div class="flex-container mt-2" id="multi-image-block">
+    <%# INSERT IMAGE #2 %>
+    <div class="flex-items shadow" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('https://images.unsplash.com/photo-1599298298575-bcf4b1a1d4a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80')"></div>
+    <div class="flex-items  shadow">
+      <div class="flex2-container">
+        <%# INSERT IMAGE #2 %>
+        <div class="flex2-items shadow" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('https://images.unsplash.com/photo-1482670205041-1281b9faf4b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"></div>
+        <%# INSERT IMAGE #3 %>
+        <div class="flex2-items shadow" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('https://images.unsplash.com/photo-1597575732103-9f6d068cfa9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')"></div>
+      </div>
+    </div>
+    <div class="flex-items">
+      <div class="flex2-container">
+        <%# INSERT IMAGE #4 %>
+        <div class="flex2-items shadow photo4" id="photo4" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('https://images.unsplash.com/photo-1529940316268-e245e031bcd1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"></div>
+        <%# INSERT IMAGE #5 %>
+        <div class="flex2-items shadow photo5" id="photo5" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('https://images.unsplash.com/photo-1619115288679-b4e581327883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"></div>
+      </div>
+    </div>
+  </div>
+
+
+<%# DESCRIPTION BLOCK %>
+  <div class="flex3-container mt-5">
+    <div class="flex3-items ">
+      <div><h4>Entire bunker hosted by <strong>Edouard</strong></h4></div>
+      <div  class="border-bottom mb-4"><p><%= @bunker.max_capacity %> guests | <%= @bunker.max_capacity/2 %> bedrooms | <%= @bunker.max_capacity/2 %> beds | <%= (@bunker.max_capacity/2)-1 %> baths</p></div>
+      <%# 3 BEST FEATURES %>
+
+      <%# BUNKER COVER %>
+      <div><h1><strong>BUNKER<span style="color: #FF7C0A">COVER</span></strong></h1></div>
+      <div  class="border-bottom mb-4"><p>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p></div>
+
+      <%# ABOUT THIS SPACE %>
+      <div><h4>About this space</h4></div>
+      <div><p></p></div>
+
+    </div>
+
+    <div class="flex3-items ">
+      <div id="booking-component" class="shadow-lg">
+      <%# INSERT BOOKING COMPONENT HERE %>
+      </div>
+    </div>
+
+  </div>
+
+</div>
