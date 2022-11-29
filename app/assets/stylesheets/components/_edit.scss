@@ -1,0 +1,44 @@
+.box2-gradient {
+  /* Required properties */
+  position: relative;
+  background: white;
+  border: 4px solid $bunkerpink;
+  border-radius: 20px;
+  /* Use  your own styles here */
+  width: 600px;
+  margin: 100px auto;
+  padding: 40px;
+}
+
+.box2-gradient:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(-45deg, $bunkergreen 0%, $bunkerpink 100% );
+  transform: translate3d(0px, 20px, 0) scale(0.95);
+  filter: blur(100px);
+  opacity: var(1);
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+/*
+* Prevents issues when the parent creates a
+* stacking context. (For example, using the transform
+* property )
+*/
+.box2-gradient::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}

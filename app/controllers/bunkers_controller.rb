@@ -32,12 +32,12 @@ class BunkersController < ApplicationController
 
   def update
     @bunker.update(bunker_params)
+    authorize @bunker
     if @bunker.save
       redirect_to bunker_path(@bunker)
     else
       render :edit
     end
-    authorize @bunker
   end
 
   def destroy
