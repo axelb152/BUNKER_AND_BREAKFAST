@@ -7,7 +7,6 @@ class BunkersController < ApplicationController
   def new
     @bunker = Bunker.new
     authorize @bunker
-
   end
 
   def show
