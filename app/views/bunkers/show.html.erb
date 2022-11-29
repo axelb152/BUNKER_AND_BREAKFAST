@@ -38,6 +38,14 @@
 <%# DESCRIPTION BLOCK %>
   <div class="flex3-container mt-5">
     <div class="flex3-items ">
+      <%# EDIT AND DELETE BUNKER %>
+      <div class="d-flex">
+        <% if policy(@bunker).edit? %>
+          <%= link_to "Edit this bunker", edit_bunker_path(@bunker) , class: "btn btn-warning mr-1" %>
+        <% end %>
+        <%= button_to "Destroy this bunker", @bunker, class: "btn btn-warning", method: :delete if policy(@bunker).destroy? %>
+      </div>
+
       <div><h4>Entire bunker hosted by <strong>Edouard</strong></h4></div>
       <div  class="border-bottom mb-4"><p><%= @bunker.max_capacity %> guests | <%= @bunker.max_capacity/2 %> bedrooms | <%= @bunker.max_capacity/2 %> beds | <%= (@bunker.max_capacity/2)-1 %> baths</p></div>
       <%# 3 BEST FEATURES %>
@@ -48,16 +56,25 @@
 
       <%# ABOUT THIS SPACE %>
       <div><h4>About this space</h4></div>
-      <div><p></p></div>
+      <div><p> <%= @bunker.description %></p></div>
 
     </div>
 
     <div class="flex3-items ">
       <div id="booking-component" class="shadow-lg">
       <%# INSERT BOOKING COMPONENT HERE %>
+        <h4 class="mb-3 border-bottom pb-3">Book this Bunker now!</h4>
+        <%= simple_form_for @booking do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.input :number_of_guests %>
+          <%= f.input :bunker_id, :as => :hidden, :input_html => { :value => @bunker.id } %>
+          <%= f.button :submit, class: "btn btn-primary"%>
+        <% end %>
       </div>
     </div>
 
   </div>
+
 
 </div>
