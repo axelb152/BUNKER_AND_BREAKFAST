@@ -5,7 +5,7 @@ class Bunker < ApplicationRecord
   has_one_attached :cover_photo
 
   validates :name, presence: true
-  #validates :photos, length: { minimum: 4 }
-  #validates :cover_photo, length: { minimum: 1 }
+  validates :photos, length: { minimum: 4 }
+  validates :cover_photo, length: { minimum: 1 }
 
 end
