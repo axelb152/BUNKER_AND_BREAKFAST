@@ -17,6 +17,11 @@ class BookingsController < ApplicationController
     @booking.total_price = @bunker.price * (@booking.end_date - @booking.start_date)
     @booking.save!
     authorize @booking
+    if @booking.save
+      redirect_to bookings_manage_path
+    else
+      render :edit
+    end
     # REDIRECT TO BOOKING PAGE ?
   end
 
@@ -27,6 +32,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def manage
+    @mybookings = policy_scope(Booking)
+    @mybookings = Booking.where(user_id: current_user.id)
+    authorize @mybookings
   end
 
   private

@@ -1,16 +1,16 @@
-.box-gradient {
+.box2-gradient {
   /* Required properties */
   position: relative;
   background: white;
   border: 4px solid $bunkerpink;
   border-radius: 20px;
   /* Use  your own styles here */
-  width: 400px;
-  margin: 200px auto;
+  width: 600px;
+  margin: 100px auto;
   padding: 40px;
 }
 
-.box-gradient:before {
+.box2-gradient:before {
   content: "";
   z-index: -1;
   position: absolute;
@@ -31,7 +31,7 @@
 * stacking context. (For example, using the transform
 * property )
 */
-.box-gradient::after {
+.box2-gradient::after {
   content: "";
   z-index: -1;
   position: absolute;

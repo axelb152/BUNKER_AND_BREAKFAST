@@ -139,7 +139,20 @@
 #booking-component {
   height: 500px;
   margin-left: 20%;
-  background-color: $bunkergreen;
+  background-color: white;
   border-radius: 20px;
   padding: 40px;
+
+  .btn {
+    color:rgb(255, 255, 255);
+  }
+}
+
+
+.btn-main {
+  background: $bunkerorange;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, $bunkerblue, $bunkerpink);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, $bunkerblue, $bunkerpink); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: rgb(255, 255, 255);
+  width: 100%;
 }

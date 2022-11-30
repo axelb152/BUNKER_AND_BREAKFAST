@@ -32,12 +32,12 @@ class BunkersController < ApplicationController
 
   def update
     @bunker.update(bunker_params)
+    authorize @bunker
     if @bunker.save
       redirect_to bunker_path(@bunker)
     else
       render :edit
     end
-    authorize @bunker
   end
 
   def destroy
@@ -48,10 +48,20 @@ class BunkersController < ApplicationController
     @mybunkers = policy_scope(Bunker)
     authorize @mybunkers
     @mybunkers = Bunker.where(user_id: current_user.id)
-
+    @totalcash = total_cash_accepted(@mybunkers)
   end
 
   private
+
+  def total_cash_accepted(bunkers)
+    sum = 0
+    bunkers.each do |b|
+      b.bookings.each do |bo|
+        sum += bo.total_price
+      end
+    end
+    return sum
+  end
 
   def set_bunker
     @bunker = Bunker.find(params[:id])

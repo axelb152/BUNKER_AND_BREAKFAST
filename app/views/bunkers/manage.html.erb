@@ -1,44 +1,75 @@
 <div class="container">
 
-
-  <%# MOBILE TITLE BAR %>
-  <div class="">
-    <div><h3> My bunkers: <%= current_user.email %> </h3></div>
-    <div><p>You have <%= @mybunkers.count %> listed on Bunker & Breakfast</p></div>
+  <div class="d-flex mb-5 justify-content-between align-items-center">
+    <div>
+      <div><h3> My bunkers & Received Bookings: <%= current_user.email %> </h3></div>
+      <div><p>You have <%= @mybunkers.count %> listed on Bunker & Breakfast. Equivalent to <%= '%.2f' % @totalcash %>€ of potential revenue</p></div>
+    </div>
+    <div>
+      <%= link_to "List a new Bunker", new_bunker_path, class: "btn btn-primary" %>
+    </div>
   </div>
 
   <div>
     <% @mybunkers.each do |bunker| %>
-      <div class="card-product">
-        <img src="https://images.unsplash.com/photo-1482670205041-1281b9faf4b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" />
+      <div class="card-product justify-content-between">
+        <img src= <%= cl_image_path bunker.cover_photo.key, :aspect_ratio=>"1:1", :effect=>"art:hokusai", :gravity=>"auto", :width=>120, :crop=>"fill" %> />
+
+
         <div class="card-product-infos">
           <h2> <%= bunker.name %></h2>
-          <p>Product description with <strong>relevant info</strong> only.</p>
+          <p>This listing has <strong><%= bunker.bookings.count %></strong> bookings.</p>
+          <div class="d-flex">
+            <p><%= link_to "View my listing", bunker_path(bunker.id)%><p> |
+            <%= link_to "Edit", edit_bunker_path(bunker) %> |
+            <%= link_to "Destroy", bunker, method: :delete if policy(bunker).destroy? %>
+          </div>
+
+        </div>
+        <div class="figures border-left pl-3">
+          <p>Total booking: <%= bunker.bookings.count %></p>
+          <% acceptedbooking = bunker.bookings.where(status: "Accepted") %>
+          <p>Accepted bookings: <%= acceptedbooking.count %> </p>
+          <% rejectedbooking = bunker.bookings.where(status: "Rejected") %>
+          <p>Rejected bookings: <%= rejectedbooking.count %> </p>
+          <% acceptedbooking = bunker.bookings.where(status: "Accepted") %>
+          <% sum = 0 %>
+          <% acceptedbooking.each { |b| sum += b.total_price }%>
+          <p>Total revenue: <%= '%.2f' % sum %>€ </p>
         </div>
       </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">From</th>
-          <th scope="col">To</th>
-          <th scope="col">Who</th>
-          <th scope="col">Status</th>
-          <th scope="col">Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% bunker.bookings.each do |booking| %>
+    <% if bunker.bookings.count == 0 %>
+      <h6 class="m-5">You have no booking to review, accept or reject for this bunker</h6>
+    <% else %>
+      <table class="table mb-5">
+        <thead>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Who</th>
+            <th scope="col">Price</th>
+            <th scope="col">Status</th>
+            <th scope="col" style="text-align: center">Accept / Reject</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+            <% bunker.bookings.each do |booking| %>
+              <tr>
+                <th><%= booking.start_date %></th>
+                <td><%= booking.end_date %></td>
+                <td><%= booking.user.email %></td>
+                <td><%= booking.total_price %>€</td>
+                <td><%= booking.status %></td>
+                <td style="text-align: center">
+                  <i class="fa-regular fa-circle-check mr-2" style="color: #1EDD88; font-size: 20px"></i>
+                  <i class="fa-solid fa-xmark" style="color: #FD1015; font-size: 20px"></i>
+                </td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    <% end %>
 
 
 
