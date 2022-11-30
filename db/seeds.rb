@@ -24,8 +24,12 @@ end
 # SEED BUNKERS
 
 i = 0
+<<<<<<< HEAD
+# Bunker.destroy_all
+=======
 
 Bunker.destroy_all
+>>>>>>> master
 bunkernames = ["The house of Armagedon",
   "Obama's Nest - Charming bunker in Pennsylvania",
   "The cigar cave - 4 bedrooms bunker",
@@ -34,7 +38,7 @@ bunkernames = ["The house of Armagedon",
   "Ancient cooldwar missili silo, for history lovers",
   "The zombie apocalypse lair"]
 
-  photos = ["The house of Armagedon",
+photos = ["The house of Armagedon",
   "Obama's Nest - Charming bunker in Pennsylvania",
   "The cigar cave - 4 bedrooms bunker",
   "Charming underground crib to chill while the world collapse",

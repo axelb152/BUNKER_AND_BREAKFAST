@@ -1,16 +1,20 @@
-<h1>Bunkers#edit</h1>
-<p>Find me in app/views/bunkers/edit.html.erb</p>
-<%= simple_form_for @bunker do|f|%>
-<%= f.input :name, label: 'Name of your Bunker', error: 'Name is mandatory, please specify one'  %>
-<%= f.input :category, label: 'Category'  %>
-<%= f.input :description, label: 'Description'  %>
-<%= f.input :price, label: 'Prix' %>
-<%= f.input :location, label: 'Location'  %>
-<%= f.input :bedroom, label: 'Nbr of bedrooms'  %>
-<%= f.input :bed, label: 'Nbr of bed'  %>
-<%= f.input :bathroom, label: 'Nbr of bathroom'  %>
-<%= f.input :max_capacity, label: 'Max Capacity' %>
-<%= f.input :cover_photo, as: :file %>
-<%= f.input :photos, as: :file, input_html: { multiple: true } %>
-<%= f.button :submit  %>
-<% end %>
+<div class="box2-gradient">
+
+  <h1>Edit this Bunker listing</h1>
+
+  <%= simple_form_for @bunker do|f|%>
+  <%= f.input :name, label: 'Name of your Bunker', error: 'Name is mandatory, please specify one'  %>
+  <%= f.input :category, label: 'Category'  %>
+  <%= f.input :description, label: 'Description'  %>
+  <%= f.input :price, label: 'Prix' %>
+  <%= f.input :location, label: 'Location'  %>
+  <%= f.input :bedroom, label: 'Nbr of bedrooms'  %>
+  <%= f.input :bed, label: 'Nbr of bed'  %>
+  <%= f.input :bathroom, label: 'Nbr of bathroom'  %>
+  <%= f.input :max_capacity, label: 'Max Capacity' %>
+  <%= f.input :cover_photo, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit, class: "btn btn-primary btn-block mt-5"  %>
+  <% end %>
+
+</div>
