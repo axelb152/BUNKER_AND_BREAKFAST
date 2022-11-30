@@ -41,8 +41,10 @@ class BunkersController < ApplicationController
   end
 
   def destroy
+    @bunker.destroy
+    redirect_to bunkers_manage_path
     authorize @bunker
-  end
+   end
 
   def manage
     @mybunkers = policy_scope(Bunker)
