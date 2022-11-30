@@ -8,12 +8,11 @@
 require 'faker'
 require "open-uri"
 
-
 # SEED USERS
 
 i = 0
 
-while i < 20
+while i < 3
   user = User.new
   user.email = Faker::Internet.email
   user.encrypted_password = Faker::Device.serial.to_s
@@ -22,32 +21,38 @@ while i < 20
 end
 
 # SEED BUNKERS
+Bunker.destroy_all
 
 i = 0
-<<<<<<< HEAD
-# Bunker.destroy_all
-=======
+bunkernames = ["The House of Armageddon - Asteroid safe",
+ "Obama’s Getaway - Charming bunker in Pennsylvania",
+ "The Cigar Cavern - 4 bedrooms bunker",
+ "Rave Cave - better than Berghain",
+ "Coding heaven - great for coding in peace",
+ "Secret Coldwar missile silo - for history lovers",
+ "The Zombie Apocalypse lair - free anti-serum on monthly bookings"]
 
-Bunker.destroy_all
->>>>>>> master
-bunkernames = ["The house of Armagedon",
-  "Obama's Nest - Charming bunker in Pennsylvania",
-  "The cigar cave - 4 bedrooms bunker",
-  "Charming underground crib to chill while the world collapse",
-  "Coding heaven - Great for coding in peace",
-  "Ancient cooldwar missili silo, for history lovers",
-  "The zombie apocalypse lair"]
+ Cloudinary::Utils.cloudinary_url("development/" + "lsf9m4e0uz4r9no77km90kkjlxpv")
 
-photos = ["The house of Armagedon",
-  "Obama's Nest - Charming bunker in Pennsylvania",
-  "The cigar cave - 4 bedrooms bunker",
-  "Charming underground crib to chill while the world collapse",
-  "Coding heaven - Great for coding in peace",
-  "Ancient cooldwar missili silo, for history lovers",
-  "The zombie apocalypse lair"]
+  photos = [
+    "Screenshot_2022-11-30_at_13.16.35_zb9vrv",
+    "Screenshot_2022-11-30_at_13.17.40_ltyv1s",
+    "Screenshot_2022-11-30_at_13.14.54_thgmio",
+    "Screenshot_2022-11-30_at_13.16.42_uxibuw",
+    "Screenshot_2022-11-30_at_13.16.26_ot3ck1",
+    "Screenshot_2022-11-30_at_13.16.49_e35v1c",
+    "Screenshot_2022-11-30_at_13.15.21_p8bzvs",
+    "Screenshot_2022-11-30_at_13.15.05_d5jku9",
+    "Screenshot_2022-11-29_at_18.13.49_wfnave",
+    "Screenshot_2022-11-30_at_13.15.12_weirib",
+    "Screenshot_2022-11-29_at_18.14.00_ydt0j1",
+    "Screenshot_2022-11-30_at_13.15.29_dpkpgo",
+    "Screenshot_2022-11-29_at_18.13.35_pe9q0t"
+    ]
+while i < 5
+  #FILES = URI.open( Cloudinary::Utils.cloudinary_url("development/" + "lsf9m4e0uz4r9no77km90kkjlxpv"))
+  FILES = URI.open(Cloudinary::Utils.cloudinary_url("development/" + photos.sample))
 
-while i < 10
-  FILE = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
   bunker = Bunker.new
   bunker.user_id = User.all.sample.id
   bunker.name = bunkernames.sample
@@ -59,12 +64,10 @@ while i < 10
   bunker.bed = 4
   bunker.bathroom = 3
   bunker.category = "Large Bunker"
-  bunker.cover_photo.attach(io: FILE, filename: "nes.png", content_type: "image/png")
+  bunker.cover_photo.attach(io: FILES, filename: "nes.png", content_type: "image/png")
   4.times {
-  FILE = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
-     bunker.photos.attach(io: FILE, filename: "nes.png", content_type: "image/png")}
+  FILE = URI.open(Cloudinary::Utils.cloudinary_url("development/" + photos.sample))
+      bunker.photos.attach(io: FILE, filename: "nes.png", content_type: "image/png")}
   bunker.save!
   i += 1
 end
-
-# SEED BOOKINGS / TO DO
