@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div class="mb-5">
+    <div><h3> My Bookings: <%= current_user.email %> </h3></div>
+    <div><p>You have <%= @mybookings.count %> booking on Bunker & Breakfast.</p></div>
+  </div>
+
+  <div>
+    <% @mybookings.each do |booking| %>
+      <div class="card-product justify-content-between mb-5">
+        <img src= <%= cl_image_path booking.bunker.cover_photo.key, :aspect_ratio=>"1:1", :effect=>"art:hokusai", :gravity=>"auto", :width=>120, :crop=>"fill" %> />
+
+
+        <div class="card-product-infos">
+          <h2 class="mb-2"><%= booking.bunker.name %></h2>
+
+          <% if booking.status == "Rejected"%>
+            <span class="c-pill c-pill--danger">Rejected</span>
+          <% elsif booking.status == "Accepted" %>
+            <span class="c-pill c-pill--success">Accepted</span>
+          <% else %>
+            <span class="c-pill c-pill--warning">Pending</span>
+          <% end %>
+
+
+          <div class="d-flex">
+            <p><%= link_to "View the Bunker", bunker_path(booking.bunker.id)%><p> |
+            <%= link_to "Cancel booking request", booking, method: :delete if policy(booking).destroy? %>
+          </div>
+
+        </div>
+        <div class="figures-booking border-left pl-3 p-2">
+          <h6><strong>From:</strong> <%= booking.start_date %></h6>
+          <h6><strong>To:</strong> <%= booking.end_date %> </h6>
+          <h6><strong>Guests #:</strong> <%= booking.number_of_guests %> </h6>
+          <h6><strong>Price:</strong> <%= '%.2f' % booking.total_price %>€ </h6>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

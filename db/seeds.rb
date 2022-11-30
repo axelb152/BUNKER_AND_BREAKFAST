@@ -24,7 +24,7 @@ end
 # SEED BUNKERS
 
 i = 0
-Bunker.destroy_all
+# Bunker.destroy_all
 bunkernames = ["The house of Armagedon",
   "Obama's Nest - Charming bunker in Pennsylvania",
   "The cigar cave - 4 bedrooms bunker",

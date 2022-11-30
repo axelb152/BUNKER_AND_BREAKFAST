@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get 'bunkers/manage', to: 'bunkers#manage'
+  get 'bookings/manage', to: 'bookings#manage'
   # Defines the root path route ("/")
   # root "articles#index"
   resources :bookings
