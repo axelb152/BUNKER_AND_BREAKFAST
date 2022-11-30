@@ -23,13 +23,14 @@ end
 
 i = 0
 
-bunkernames = ["The house of Armagedon",
-  "Obama's Nest - Charming bunker in Pennsylvania",
-  "The cigar cave - 4 bedrooms bunker",
-  "Charming underground crib to chill while the world collapse",
-  "Coding heaven - Great for coding in peace",
-  "Ancient cooldwar missili silo, for history lovers",
-  "The zombie apocalypse lair"
+bunkernames = [
+  "The House of Armageddon - Asteroid safe",
+  "Obama's Getaway - Charming bunker in Pennsylvania",
+  "The Cigar Cavern - 4 bedrooms bunker",
+  "Rave Cave - better than Berghain",
+  "Coding heaven - great for coding in peace",
+  "Secret Coldwar missile silo - for history lovers",
+  "The Zombie Apocalypse lair - free anti-serum on monthly bookings"
   ]
 
 while i < 10
