@@ -1,2 +1,54 @@
-<h1>Bunkers#index</h1>
-<p>Find me in app/views/bunkers/index.html.erb</p>
+<div class = "container justify-content-center">
+  <%# NAVBAR %>
+  <div>
+
+  </div>
+
+  <%# FILTERS %>
+  <div class="cards">
+    <div class="card-category">
+      <a href=""><i class="fa-solid fa-biohazard"></i><span>Zombie-Free</span></a>
+    </div>
+
+    <div class="card-category">
+      <a href=""><i class="fa-solid fa-music"></i><span>Rave</span></a>
+    </div>
+
+    <div class="card-category">
+      <a href=""><i class="fa-solid fa-laptop"></i><span>Coding Heaven</span></a>
+    </div>
+
+    <div class="card-category">
+      <a href=""><i class="fa-solid fa-smoking"></i><span>Cigar&Chill</span></a>
+    </div>
+
+    <div class="card-category">
+      <a href=""><i class="fa-solid fa-landmark"></i><span>History</span></a>
+    </div>
+
+    <div class="card-category">
+      <a href=""><p class="filter-button"><i class="fa-solid fa-filters"></i> Filters</p></a>
+    </div>
+
+  </div>
+
+  <%# CARDS %>
+  <div class="bunker-card d-flex align-content-center justify-content-center flex-wrap">
+    <% @bunkers.each do |bunker| %>
+      <div class="row pt-5 mx-1" style="width: 18rem;">
+        <div class="col-12">
+            <img class="bunker-image card-img-top rounded" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthespaces.com%2Fwp-content%2Fuploads%2F2017%2F05%2Fbunker_unten2_neu.jpg&f=1&nofb=1&ipt=7932e23da791acf8a81448489b522f60e55c77812f820b819679a16acb304ac6&ipo=images" alt="Card image cap">
+          <div class="col mb-3 px-0 align-items-stretch">
+              <div class="card-body pl-0">
+                <h5 class="card-title border-bottom"> <%= bunker.name %></h5>
+                <p class="card-text"><%= bunker.location %></p>
+                <p class="card-text">€<%= bunker.price %> night</p>
+                <a href="#" class="btn btn-outline-dark mt-auto align-self-start">View</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>
