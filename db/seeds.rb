@@ -24,7 +24,12 @@ end
 # SEED BUNKERS
 
 i = 0
+<<<<<<< HEAD
 # Bunker.destroy_all
+=======
+
+Bunker.destroy_all
+>>>>>>> master
 bunkernames = ["The house of Armagedon",
   "Obama's Nest - Charming bunker in Pennsylvania",
   "The cigar cave - 4 bedrooms bunker",
