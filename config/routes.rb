@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # get 'bunkers/update'
   # get 'bunkers/destroy'
   devise_for :users
-  root to: "pages#home"
+  root to: "bunkers#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get 'bunkers/manage', to: 'bunkers#manage'
