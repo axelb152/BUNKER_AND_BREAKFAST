@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require "open-uri"
+
 
 # SEED USERS
 
@@ -23,17 +25,25 @@ end
 
 i = 0
 
-bunkernames = [
-  "The House of Armageddon - Asteroid safe",
-  "Obama's Getaway - Charming bunker in Pennsylvania",
-  "The Cigar Cavern - 4 bedrooms bunker",
-  "Rave Cave - better than Berghain",
-  "Coding heaven - great for coding in peace",
-  "Secret Coldwar missile silo - for history lovers",
-  "The Zombie Apocalypse lair - free anti-serum on monthly bookings"
-  ]
+Bunker.destroy_all
+bunkernames = ["The house of Armagedon",
+  "Obama's Nest - Charming bunker in Pennsylvania",
+  "The cigar cave - 4 bedrooms bunker",
+  "Charming underground crib to chill while the world collapse",
+  "Coding heaven - Great for coding in peace",
+  "Ancient cooldwar missili silo, for history lovers",
+  "The zombie apocalypse lair"]
+
+  photos = ["The house of Armagedon",
+  "Obama's Nest - Charming bunker in Pennsylvania",
+  "The cigar cave - 4 bedrooms bunker",
+  "Charming underground crib to chill while the world collapse",
+  "Coding heaven - Great for coding in peace",
+  "Ancient cooldwar missili silo, for history lovers",
+  "The zombie apocalypse lair"]
 
 while i < 10
+  FILE = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
   bunker = Bunker.new
   bunker.user_id = User.all.sample.id
   bunker.name = bunkernames.sample
@@ -41,6 +51,14 @@ while i < 10
   bunker.price = rand(51.2...176.9)
   bunker.location = Faker::Address.full_address
   bunker.max_capacity = rand(4...14)
+  bunker.bedroom = 4
+  bunker.bed = 4
+  bunker.bathroom = 3
+  bunker.category = "Large Bunker"
+  bunker.cover_photo.attach(io: FILE, filename: "nes.png", content_type: "image/png")
+  4.times {
+  FILE = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+     bunker.photos.attach(io: FILE, filename: "nes.png", content_type: "image/png")}
   bunker.save!
   i += 1
 end
