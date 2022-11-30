@@ -37,16 +37,17 @@
     <% @bunkers.each do |bunker| %>
       <div class="row pt-5 mx-1" style="width: 18rem;">
         <div class="col-12">
-            <img class="bunker-image card-img-top rounded" src="<%= cl_image_path bunker.cover_photo.key, height: 300, crop: :fill %>" alt="Card image cap">
-          <div class="col mb-3 px-0 align-items-stretch">
+            <div class="flex-items bunker-image card-img-top rounded-lg" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('<%= cl_image_path bunker.cover_photo.key, height: 300, crop: :fill %>')"></div>
+
+          <div class="p-2 col mb-3 px-0 align-items-stretch">
               <div class="bunker-details pl-0">
                 <h5 class="card-title border-bottom mt-2"> <%= bunker.name.truncate(24) %></h5>
                 <p>⭐️ <%= '%.2f' % rand(2.0..5)%>
                 <p class="card-text"><%= bunker.location %></p>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <div><%= link_to "View", bunker_path(bunker.id), class: "btn btn-sm btn-outline-dark"%></div>
                 <div><p class="card-text bold"><%= bunker.price %>€ / night</p></div>
+                <div><%= link_to "View", bunker_path(bunker.id), class: "btn btn-sm btn-outline-dark"%></div>
               </div>
           </div>
         </div>
