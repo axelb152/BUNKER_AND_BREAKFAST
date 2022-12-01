@@ -37,7 +37,7 @@
     <% @bunkers.each do |bunker| %>
       <div class="row pt-5 mx-1" style="width: 18rem;">
         <div class="col-12">
-            <div class="flex-items bunker-image card-img-top rounded-lg" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('<%= cl_image_path bunker.cover_photo.key, height: 300, crop: :fill %>')"></div>
+            <div class="flex-items bunker-image card-img-top rounded-lg" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.30)), url('<%= cl_image_path bunker.cover_photo.key, height: 300, crop: :fill %>')"></div>
 
           <div class="p-2 col mb-3 px-0 align-items-stretch">
               <div class="bunker-details pl-0">

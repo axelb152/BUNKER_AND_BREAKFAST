@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   # get 'bunkers/edit'
   # get 'bunkers/update'
   # get 'bunkers/destroy'
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth' }
+
   root to: "bunkers#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
