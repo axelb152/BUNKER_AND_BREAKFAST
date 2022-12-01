@@ -15,21 +15,21 @@
 
   <div class="flex-container mt-2" id="multi-image-block">
     <%# INSERT IMAGE #2 %>
-    <div class="flex-items shadow" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('<%= cl_image_path @bunker.cover_photo.key, height: 300, crop: :fill %>')"></div>
+    <div class="flex-items shadow" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.3)), url('<%= cl_image_path @bunker.cover_photo.key, height: 300, crop: :fill %>')"></div>
     <div class="flex-items  shadow">
       <div class="flex2-container">
         <%# INSERT IMAGE #2 %>
-        <div class="flex2-items shadow" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('<%= cl_image_path @bunker.photos[0].key.to_s, height: 300, crop: :fill %>')"></div>
+        <div class="flex2-items shadow" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.3)), url('<%= cl_image_path @bunker.photos[0].key.to_s, height: 300, crop: :fill %>')"></div>
         <%# INSERT IMAGE #3 %>
-        <div class="flex2-items shadow" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('<%= cl_image_path @bunker.photos[1].key, height: 300, crop: :fill %>')"></div>
+        <div class="flex2-items shadow" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.3)), url('<%= cl_image_path @bunker.photos[1].key, height: 300, crop: :fill %>')"></div>
       </div>
     </div>
     <div class="flex-items">
       <div class="flex2-container">
         <%# INSERT IMAGE #4 %>
-        <div class="flex2-items shadow photo4" id="photo4" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('<%= cl_image_path @bunker.photos[2].key, height: 300, crop: :fill %>')"></div>
+        <div class="flex2-items shadow photo4" id="photo4" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.3)), url('<%= cl_image_path @bunker.photos[2].key, height: 300, crop: :fill %>')"></div>
         <%# INSERT IMAGE #5 %>
-        <div class="flex2-items shadow photo5" id="photo5" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.30), rgba(133, 255, 214, 0.50)), url('<%= cl_image_path @bunker.photos[3].key, height: 300, crop: :fill %>')"></div>
+        <div class="flex2-items shadow photo5" id="photo5" style="background-image:  linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.3)), url('<%= cl_image_path @bunker.photos[3].key, height: 300, crop: :fill %>')"></div>
       </div>
     </div>
   </div>
