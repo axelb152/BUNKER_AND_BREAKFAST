@@ -65,8 +65,8 @@
       <%# INSERT BOOKING COMPONENT HERE %>
         <h4 class="mb-3 border-bottom pb-3">Book this Bunker now!</h4>
         <%= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
-          <%= f.input :start_date,input_html: { data: { flatpickr_target: "start_date" } } %>
-          <%= f.input :end_date,input_html: { data: { flatpickr_target: "end_date" } } %>
+          <%= f.input :start_date,as: :string, input_html: { data: { flatpickr_target: "start_date" } } %>
+          <%= f.input :end_date,as: :string, input_html: { data: { flatpickr_target: "end_date" } } %>
           <%= f.input :number_of_guests, class: "form-control" %>
           <%= f.input :bunker_id, :as => :hidden, :input_html => { :value => @bunker.id } %>
           <%= f.button :submit, class: "btn-main"%>
