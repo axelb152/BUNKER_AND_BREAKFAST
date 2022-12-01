@@ -4,6 +4,18 @@
 
   </div>
 
+  <%# SEARCH %>
+  <div>
+    <%= form_with url: bunkers_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a Bunker"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
   <%# FILTERS %>
   <div class="cards">
     <div class="card-category">

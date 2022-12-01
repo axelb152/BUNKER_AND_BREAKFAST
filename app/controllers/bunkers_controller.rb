@@ -1,7 +1,11 @@
 class BunkersController < ApplicationController
   before_action :set_bunker, only: %i[show edit update destroy]
   def index
-    @bunkers = policy_scope(Bunker)
+    if params[:query].present?
+      @bunkers = policy_scope(Bunker).search_by_category(params[:query])
+    else
+      @bunkers = policy_scope(Bunker)
+    end
   end
 
   def new
@@ -44,7 +48,7 @@ class BunkersController < ApplicationController
     @bunker.destroy
     redirect_to bunkers_manage_path
     authorize @bunker
-   end
+  end
 
   def manage
     @mybunkers = policy_scope(Bunker)
@@ -70,6 +74,7 @@ class BunkersController < ApplicationController
   end
 
   def bunker_params
-    params.require(:bunker).permit(:name, :description, :price, :location, :max_capacity, :bed, :bedroom, :bathroom, :category, :cover_photo, photos: [])
+    params.require(:bunker).permit(:name, :description, :price, :location, :max_capacity, :bed, :bedroom, :bathroom,
+                                   :category, :cover_photo, photos: [])
   end
 end

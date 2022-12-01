@@ -63,7 +63,7 @@ while i < 5
   bunker.bedroom = 4
   bunker.bed = 4
   bunker.bathroom = 3
-  bunker.category = "Large Bunker"
+  bunker.category = ["zombie", "cigar", "rave", "coding", "history"].sample
   bunker.cover_photo.attach(io: FILES, filename: "nes.png", content_type: "image/png")
   4.times {
   FILE = URI.open(Cloudinary::Utils.cloudinary_url("development/" + photos.sample))
