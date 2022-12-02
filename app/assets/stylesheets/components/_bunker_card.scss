@@ -1,6 +1,3 @@
-
-
-
 .bunker-image {
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -20,6 +17,13 @@
 
 .cards span {
   padding-left: 0.5rem;
+  color: #3C4048;
+}
+
+.cards i {
+  color: #22A39F;
+  opacity: .7;
+  padding-right: 5px;
 }
 
 .filter-button {
