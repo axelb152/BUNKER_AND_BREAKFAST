@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e507d38fbbb0a5831329e9219e646af4763a2c2c470352a7741f1e91c6f0607145198a9948e0cc14a5e8e538b582d36908b13b3c36658bbd00be0e73229e6945'
+  # config.secret_key = '86a133704afa2e55fa21af4c5ac0b93e74da87c83d4307957d50bfd16e6f17f32c42618067293f6ea31cd1e6dc5642fb1c4bd26fb0ac7ae9d16f811580f074bf'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +24,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'no-reply@bunkerandbreakfast.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'b4e05b6a01aa2eba6c6b4755c6b11f039b0ef8b09d7bf0fd3ebdf21a07b58c3d4115ee0560191ba1ef86eff1a33b86760f2546d3a7918d9a79ea687d10ec999c'
+  # config.pepper = '1d95dd8f2aa07b163451723802c331f2e53ebc1bfc5a6fee7186edaee2ee82a54c9560388c2ccfe93e10c7d62bccd0937d7a2d5245d0827bd209c0d21c5c6fa5'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -272,6 +272,21 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+
+
+  config.omniauth :github, Rails.application.credentials.dig(:github, :github_client_id),
+  Rails.application.credentials.dig(:github, :github_client_secret), scope:'user,public_repo'
+
+  config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :google_client_id),
+  Rails.application.credentials.dig(:google, :google_client_secret), scope:'userinfo.email,userinfo.profile'
+
+  # config.omniauth :github, ENV['GITHUB_PUBLIC_KEY'],
+  # ENV['GITHUB_SECRET_KEY'], scope:'user,public_repo'
+
+  # config.omniauth :google_oauth2, ENV['GOOGLE_SECRET_KEY'],
+  # ENV['GOOGLE_SECRET_KEY'], scope:'userinfo.email,userinfo.profile'
+
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
