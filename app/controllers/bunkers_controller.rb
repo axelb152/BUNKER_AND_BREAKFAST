@@ -2,7 +2,7 @@ class BunkersController < ApplicationController
   before_action :set_bunker, only: %i[show edit update destroy]
   def index
     if params[:query].present?
-      @bunkers = policy_scope(Bunker).search_by_category(params[:query])
+      @bunkers = policy_scope(Bunker).search_by_name(params[:query])
     else
       @bunkers = policy_scope(Bunker)
     end
