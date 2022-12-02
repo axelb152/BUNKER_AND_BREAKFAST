@@ -2,8 +2,9 @@
 
   <div class="d-flex mb-5 justify-content-between align-items-center">
     <div>
-      <div><h3> My bunkers & Received Bookings: <%= current_user.email %> </h3></div>
-      <div><p>You have <%= @mybunkers.count %> listed on Bunker & Breakfast. Equivalent to <%= '%.2f' % @totalcash %>€ of potential revenue</p></div>
+      <div><h3> My bunkers & Received Bookings </h3></div>
+      <div><p>You have <%= @mybunkers.count %> listed on Bunker & Breakfast.</p></div>
+      <div><p>Equivalent to <%= '%.2f' % @totalcash %>€ of potential revenue</p></div>
     </div>
     <div>
       <%= link_to "List a new Bunker", new_bunker_path, class: "btn btn-primary" %>
