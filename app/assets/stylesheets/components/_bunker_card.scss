@@ -1,6 +1,3 @@
-.container-main {
-  min-width: 90% !important;
-}
 
 
 
@@ -49,9 +46,17 @@
 .bunker-card {
   p {
     font-size: 12px;
+    margin-bottom: 0rem;
+
   }
 }
 
 .bunker-details {
-  height: 150px;
+  height: 100px;
+}
+
+
+.link {
+  text-decoration: none !important;
+  color: #222222;
 }

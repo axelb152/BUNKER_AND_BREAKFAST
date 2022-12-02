@@ -6,8 +6,9 @@
 
   <%# FILTERS %>
   <div class="cards">
+
     <div class="card-category">
-      <a href=""><i class="fa-solid fa-biohazard"></i><span>Zombie-Free</span></a>
+      <a href="" style=""><i class="fa-solid fa-biohazard"></i><span>Zombie-Free</span></a>
     </div>
 
     <div class="card-category">
@@ -35,25 +36,26 @@
   <%# CARDS %>
   <div class="bunker-card d-flex justify-content-between flex-wrap">
     <% @bunkers.each do |bunker| %>
-      <div class="row pt-5 mx-1" style="width: 18rem;">
-        <div class="col-12">
-            <div class="flex-items bunker-image card-img-top rounded-lg" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.30)), url('<%= cl_image_path bunker.cover_photo.key, height: 300, crop: :fill %>')"></div>
-
-          <div class="p-2 col mb-3 px-0 align-items-stretch">
+        <div class="row pt-5 mx-1" style="width: 18rem;">
+          <div class="col-12 p-0">
+            <%= link_to bunker_path(bunker.id), class: "link" do %>
+            <div class="flex-items bunker-image card-img-top rounded-lg" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.30)), url('<%= cl_image_path bunker.cover_photo.key, height: 300, crop: :fill %>')">
+            </div>
+            <div class="p-2 col mb-3 px-0 align-items-stretch">
               <div class="bunker-details pl-0">
-                <div class="d-flex">
-                  <div><h6 class="card-title border-bottom mt-2"> <%= bunker.name %></h6></div>
-                  <div class="flex-grow"><p>⭐️ <%= '%.2f' % rand(2.0..5)%></p></div>
+                <div class="d-flex justify-content-between">
+                  <div><h6 class="card-title border-bottom mt-2 link"> <%= bunker.name %></h6></div>
                 </div>
                 <p class="card-text"><%= bunker.location %></p>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <div><p class="card-text bold"><%= bunker.price %>€ / night</p></div>
-                <div><%= link_to "View", bunker_path(bunker.id), class: "btn btn-sm btn-outline-dark"%></div>
+                <div><h6 class="card-text bold"><%= bunker.price %>€ / night</h6></div>
+                <div class="card-text mb-0"><h6>⭐️ <%= '%.2f' % rand(2.0..5)%></h6></div>
               </div>
+            </div>
+            <% end %>
           </div>
         </div>
-      </div>
     <% end %>
 
   </div>
