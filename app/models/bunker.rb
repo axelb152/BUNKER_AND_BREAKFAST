@@ -8,4 +8,11 @@ class Bunker < ApplicationRecord
   validates :photos, length: { minimum: 4 }
   validates :cover_photo, length: { minimum: 1 }
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_name,
+    against: [ :name ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

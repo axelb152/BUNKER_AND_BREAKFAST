@@ -4,6 +4,18 @@
 
   </div>
 
+  <%# SEARCH %>
+  <div>
+    <%= form_with url: bunkers_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a Bunker"
+      %>
+      <%= submit_tag "Search", class: "btn btn-dark mb-5 rounded" %>
+    <% end %>
+  </div>
+
   <%# FILTERS %>
   <div class="cards">
 
@@ -28,15 +40,15 @@
     </div>
 
     <div class="card-category">
-      <a href=""><p class="filter-button"><i class="fa-solid fa-filters"></i> Filters</p></a>
+      <a href=""><p class="filter-button">Filters</p></a>
     </div>
 
   </div>
 
   <%# CARDS %>
-  <div class="bunker-card d-flex justify-content-between flex-wrap">
+  <div class="bunker-card d-flex justify-content-left flex-wrap mb-5">
     <% @bunkers.each do |bunker| %>
-        <div class="row pt-5 mx-1" style="width: 18rem;">
+        <div class="row pt-5 mx-1 ml-3" style="width: 18rem;">
           <div class="col-12 p-0">
             <%= link_to bunker_path(bunker.id), class: "link" do %>
             <div class="flex-items bunker-image card-img-top rounded-lg" id="photo1" style="background-image: linear-gradient(to bottom, rgba(255, 153, 187, 0.1), rgba(133, 255, 214, 0.30)), url('<%= cl_image_path bunker.cover_photo.key, height: 300, crop: :fill %>')">
